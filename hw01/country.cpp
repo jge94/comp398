@@ -7,77 +7,73 @@
 
 using namespace std;
 
-// ======================================================================
-countryList::countryList()								//CTOR
+countryList::countryList()						//CTOR
 {
-	tail = new Node;
-	tail->countryName = "NULL";
-	tail->p = 0;					// initial condition: point to NULL
-
-	head->countryName = "NULL";
-	head->p = tail;
+	currentNode = new Node;
+	currentNode->countryName = "NULL";
+	currentNode->p = 0;
+	head = currentNode;
+	tail = currentNode;
 }//CTOR
 
 countryList::~countryList()						// DTOR
 {
-	Node *temp1;								// delete Head
-	temp1 = head;
-	delete temp1;
-
-	Node *temp2;
-	temp2 = head->p;
-
-	while (temp2 != 0)
+	Node *front, *back;
+	front = head;
+	while (front->p != 0)
 	{
-		temp1 = temp2;
-		delete temp2;
-		temp2 = temp1->p;
+		back = front;
+		delete back;
+		front = front->p;
 	}
 }
 
-void countryList::newNode(string newCountry)			// add at the end of the list
+
+void countryList::addToEndOfTheList(string newCountryName)
 {
 	Node* temp = new Node;
+	temp->countryName = newCountryName;
+	temp->p = 0;
+
 	tail->p = temp;
-	temp->countryName = newCountry;
-	temp->p = 0;
+	tail = temp;
 }
 
-Node* makeNode(string nameOfCountry)
-{
-	Node* temp = new Node;
-	temp->countryName = nameOfCountry;
-	temp->p = 0;
-	return temp;
-}
-
-void countryList::addNode(Node* anotherNode)
-{
-	Node* temp = head->p;
-	head->p = anotherNode;
-	anotherNode->p = temp;
-}
 
 void countryList::searchNode()
 {
 	string myCountryName;
-	cout << "Enter the country name you're searching for: ",
+	cout << "Enter the country you're searching for: ",
 		cin >> myCountryName;
 
 	Node* temp = head->p;
 
-	while (temp->countryName != myCountryName && temp->p != 0)
+	bool Found = false;
+	while (temp->p != 0)
 	{
-		temp = temp->p;
 		if (temp->countryName == myCountryName)
 		{
 			cout << "Yayyy! Got it: " << myCountryName << endl;
+			Found = true;
 			break;
 		}
-		else
-		{
-			cout << "Nahhh," << myCountryName << "is not in the list" << endl;
-		}
+		temp = temp->p;
+	}
+	
+	if (Found == false)
+	{
+		cout << "Nahhh, " << myCountryName << "is not in the list" << endl;
 	}
 
+}
+
+void countryList::printList()
+{
+	Node* temp = head->p;
+
+	while (temp->p != 0)
+	{
+		cout << temp->countryName << endl;
+		temp = temp->p;
+	}
 }

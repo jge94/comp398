@@ -22,3 +22,6 @@ country.cpp -- defines all functions used for countryList class
 
 country.h -- defines the class countryList, declaration of all public 
 	     functions assigned to it
+
+Node.h -- defines the data structure of the node of the linked list
+		in this program, the countries in the country list

@@ -11,26 +11,24 @@ using namespace std;
 
 int main()
 {
+
 	string line;
 	ifstream myfile("countries.txt");
 
-	countryList myCountryList;			// create empty list
-	string newCountry;
+	countryList myCountryList;			// create an empty list
+
+	string newCountryName;
 	cout << "Enter the name of the country you want to add at the end of the list: ",
-		cin >> newCountry;
+		cin >> newCountryName;
 	cout << endl;
 
-	myCountryList.newNode(newCountry);
+	myCountryList.addToEndOfTheList(newCountryName);
 
-	// plain text
 	if (myfile.is_open())
 	{
-		cout << "			Rank of richest countries in the world" << endl;
 		while (getline(myfile, line))
 		{
-			cout << line << endl;
-			Node* newCountry = myCountryList.makeNode(line);
-			myCountryList.addNode(newCountry);				// populate from plain text
+			myCountryList.addToEndOfTheList(line);			// populate from plain text
 		}
 		myfile.close();
 	}
@@ -38,8 +36,14 @@ int main()
 	else
 	{
 		cout << "Unable to open file" << endl;
+		exit(-1);
 	}
 
+	myCountryList.searchNode();						// search the list
+
+	cout << endl;
+	cout << "		Rank of richest countries in the world" << endl;
+	myCountryList.printList();							// display plain text form of the list
 
 	system("PAUSE");
 	return 0;

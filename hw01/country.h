@@ -2,30 +2,26 @@
 #define COUNTRY
 
 #include "stdafx.h"
+#include "Node.h"
 #include <iostream>
 #include <string>
 
-struct Node
-{
-	string countryName;
-	Node *p;
-};
 
 class countryList
 {
 public:
 
-	countryList();													// Default CTOR
+	countryList();												// Default CTOR
 
 	~countryList();												// DTOR
 
-	void newNode(string newCountry);
-	Node* makeNode(string nameOfCountry);
-	void addNode(Node* anotherNode);
-	void searchNode();
+	void addToEndOfTheList(string newCountryName);				// add Node to the end of the list
+	void searchNode();											// search for a country
+	void printList();											// print the entire list to console
 
 	Node *head;
 	Node *tail;
+	Node *currentNode;
 
 };// class countryList
 
