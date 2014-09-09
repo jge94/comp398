@@ -26,6 +26,4 @@ struct Node
 };
 Node *head;
 Node *headPtr;
-
-
 };

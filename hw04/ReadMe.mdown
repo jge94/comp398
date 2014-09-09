@@ -1,0 +1,8 @@
+## HW04
+
+This program is a a basic Markdown to HTML converter. Your converter should handle paragraphs, headers, block quotes, emphasis, lists, links, images, and code
+
+* main.cpp - driver program
+* inputMDfile.md - sample input MarkDown file
+* outputHTMLfile.html - sample output HTML file
+* ReadMe.md - this file

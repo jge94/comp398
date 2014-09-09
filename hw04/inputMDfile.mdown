@@ -1,0 +1,28 @@
+Paragraphs.
+
+#### Headers
+
+paragraphs, headers, block quotes, emphasis, lists, links, images, and code
+> block quotes.
+
+*Emphasis*
+
+**Another Emphasis**
+
+__Another Emphasis__
+
+*   Text
+
++   More text
+
+-   Other text
+
+1.   list1
+2.   list2
+3.   list3
+
+LINK: [sample link](http://www.google.com).
+
+Images ![alt text](http://stuffpoint.com/cats/image/41567/cats-picture/)
+
+Code: `8EOw10wenY`
