@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Lazy Caterer's Sequence</title>
+    <meta charset="utf-8">
+
+    <style>
+      tbody { text-align: center; }
+      table tr:nth-child(odd) td{
+        background-color: yellow;
+      }
+      table tr:nth-child(even) td{
+        background-color: orange;
+      }
+
+      tbody td { padding: 10px;}
+
+    </style>
+
+  </head>
+
+<body>
+    
+<!-- Part of the code is referenced to Lexos -->
+<form id="input" name="INPUT" method="get" align="center">
+  Enter integer n: 
+  <input id="nVal" name="nVal" type="number" style="width:50px;">
+  <input type="submit" value="Enter">
+</form>
+
+<br>
+
+<table id="table" align="center"></table>
+
+<script src="http://code.jquery.com/jquery-latest.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+
+    $('#input').submit(function() { 
+
+    $.ajax({ 
+        type: $(this).attr('GET'), 
+        success: function() { 
+          $('#table').append('<tr><th> n </th><th> Lazy Caterer(n) </tr>');
+          var n = Number($('#nVal').val());
+          var output = "";  
+
+          for (var i=0; i <= Number(n); i++) {
+            lazyCat = (i*(i+1)/2) + 1
+            $('#table tr:last').after('<tr><td>' + i + '</td><td>' + lazyCat + '</td></tr>');
+          }//end for
+
+        }//end success: function()
+    });//end .ajax
+
+    return false;
+    });// end submit
+    });// end ready
+  
+</script>
+
+</body>
+</html>
