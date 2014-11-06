@@ -1,0 +1,3 @@
+- GET: http://aroundtheword.com 
+- Host: http://aroundtheword.com
+- Accept:text/html, text/css
