@@ -1,6 +1,9 @@
 Project2
 ========
 
+Group project: with [Lithia](https://github.com/lithiah/comp398) and [Bre](https://github.com/bjoachim/comp398)
+The link to the code: [here](https://github.com/lithiah/Project2)
+
 DoggieDeets - Documentation:
 ---------------------------
 
